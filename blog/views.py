@@ -1,26 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from blog.models import BlogPost
 
 
 def blog_home(request):
-    return render(request, "blog/index.html")
+    return render(request, "blog-html/index.html")
 
 
 def post_create(request):
-    return render(request, "blog/post-create.html")
+    if request.method == "POST":
+        new_post = BlogPost()
+        new_post.title = request.POST.get("title")
+        new_post.content = request.POST.get("content")
+        new_post.save()
+        
+        return redirect("/blog-url/home/")
+    elif request.method == "GET":
+        return render(request, "blog-html/post-create.html")
 
 
 def post_read(request):
-    return render(request, "blog/post-read.html")
+    return render(request, "blog-html/post-read.html")
 
 
 def post_update(request):
-    return render(request, "blog/post-update.html")
+    return render(request, "blog-html/post-update.html")
 
 
 def post_delete(request):
-    return render(request, "blog/post-delete.html")
+    return render(request, "blog-html/post-delete.html")
 
 
 def temp():
