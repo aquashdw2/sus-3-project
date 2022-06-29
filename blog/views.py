@@ -7,7 +7,7 @@ def blog_home(request):
     return render(request, "blog-html/index.html")
 
 
-def post_create(request):
+def blog_post_create(request):
     if request.method == "POST":
         new_post = BlogPost()
         new_post.title = request.POST.get("title")
@@ -19,15 +19,15 @@ def post_create(request):
         return render(request, "blog-html/post-create.html")
 
 
-def post_read(request):
+def blog_post_read(request):
     return render(request, "blog-html/post-read.html")
 
 
-def post_update(request):
+def blog_post_update(request):
     return render(request, "blog-html/post-update.html")
 
 
-def post_delete(request):
+def blog_post_delete(request):
     return render(request, "blog-html/post-delete.html")
 
 
