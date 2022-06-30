@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from blog.models import BlogPost
+from blog.models import Article
 
 
 def blog_home(request):
@@ -9,7 +9,7 @@ def blog_home(request):
 
 def blog_post_create(request):
     if request.method == "POST":
-        new_post = BlogPost()
+        new_post = Article()
         new_post.title = request.POST.get("title")
         new_post.content = request.POST.get("content")
         new_post.save()
@@ -33,29 +33,29 @@ def blog_post_delete(request):
 
 def temp():
     # Create
-    new_post = BlogPost()
+    new_post = Article()
     new_post.title = "new post title"
     new_post.content = "Lorem Ipsum"
     new_post.save()
 
 
     # Read
-    post_list = BlogPost.objects.all()
+    post_list = Article.objects.all()
     for post in post_list:
         print(post.title)
-    first_post = BlogPost.objects.get(id=1)
+    first_post = Article.objects.get(id=1)
     print(f"title: {first_post.title}")
     print(f"content: {first_post.content}")
     print(f"created: {first_post.created_at}")
 
 
     # Update
-    target_post = BlogPost.objects.get(id=3)
+    target_post = Article.objects.get(id=3)
     target_post.title = "Blog Title 3"
     target_post.content = "new updated content"
     target_post.save()
 
 
     # Delete
-    target_post = BlogPost.objects.order_by("-pk")[0]
+    target_post = Article.objects.order_by("-pk")[0]
     target_post.delete()
