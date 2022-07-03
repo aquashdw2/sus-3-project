@@ -7,16 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/polls/submit-choice/" method="post">
+    <form action="/survey/submit-simple/" method="post">
         {% csrf_token %}
         <div>
             <label>나이: <input id="input-age" type="number" name="age" /></label>
         </div>
         <div>
-            성별 <br>
-            <label>남성:<input id="input-gender" type="radio" name="gender" value="M"/></label> <br>
-            <label>여성:<input id="input-gender" type="radio" name="gender" value="F"/></label> <br>
-            <label>응답거부:<input id="input-gender" type="radio" name="gender" value="O"/></label>
+            <label>성별: <input id="input-gender" type="text" name="gender"/></label>
         </div>
         <div>
             <label>주소: <input id="input-address" type="text" name="address"/></label>

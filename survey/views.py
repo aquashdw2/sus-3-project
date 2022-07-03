@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 
+from survey.models import SurveySimple, SurveyChoices
+
 
 def create_survey_simple(request):
     if request.method == "POST":
+        
         print(request.POST.get("age"))
         print(request.POST.get("gender"))
         print(request.POST.get("address"))

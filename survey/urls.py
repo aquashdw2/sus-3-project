@@ -1,6 +1,6 @@
 from django.urls import path
 
-from polls import views
+from survey import views
 
 
 urlpatterns = [
