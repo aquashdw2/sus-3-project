@@ -11,6 +11,9 @@
     <h2>정말 삭제하시겠습니까?</h2>
     <form action="/nn-board/post/{{ post.id }}/delete/" method="post">
         {% csrf_token %}
+        <input type="text" name="username" placeholder="ID" />
+        <input type="password" name="password" placeholder="비밀번호" />
+        <br>
         <input type="submit" value="예" />
     </form>
     <a href="/nn-board/post/{{ post.id }}/read/">돌아가기</a>

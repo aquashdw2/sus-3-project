@@ -20,6 +20,8 @@ def post_create(request):
         new_post = BoardPost()
         new_post.title = request.POST.get("title")
         new_post.content = request.POST.get("content")
+        new_post.username = request.POST.get("username")
+        new_post.password = request.POST.get("password")
         new_post.save()
         
         return redirect("/nn-board/home/")
@@ -42,6 +44,9 @@ def post_read(request, target_id):
 def post_update(request, target_id):
     target_post = BoardPost.objects.get(id=target_id)
     if request.method == "POST":
+        if not (target_post.username == request.POST.get("username") \
+            and target_post.password == request.POST.get("password")):
+            return redirect(f"/nn-board/post/{target_id}/update/") 
         target_post.title = request.POST.get("title")
         target_post.content = request.POST.get("content")
         target_post.save()
@@ -63,6 +68,9 @@ def post_update(request, target_id):
 def post_delete(request, target_id):
     target_post = BoardPost.objects.get(id=target_id)
     if request.method == "POST":
+        if not (target_post.username == request.POST.get("username") \
+            and target_post.password == request.POST.get("password")):
+            return redirect(f"/nn-board/post/{target_id}/delete/") 
         target_post.delete()
         return redirect("/nn-board/home/")
     elif request.method == "GET":
