@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Update</h1>
+    <h1>Update</h1>    
+    <form action="/blog-url/{{ post.id }}/update/" method="post">
+        {% csrf_token %}
+        Title: <input type="text" name="title" value="{{ post.title }}" />
+        <div>
+            <textarea name="content">{{ post.content }}</textarea>
+        </div>
+        <input type="submit" value="작성" />
+    </form><br>
+    <a href="/blog-url/home/">Go Back</a>
 </body>
 </html>
