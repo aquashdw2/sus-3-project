@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Home</title>
+    <title>Board Home</title>
 </head>
 <body>
-    <h1>Blog Home</h1>
+    <h1>Board Home</h1>
     {% for post in post_list %}
     <div>{{ post.id }}. {{ post.title }} <a href="/nn-board/post/{{ post.id }}/read/">보러가기</a></div>
     {% endfor %}
