@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("blog-url/", include("blog.blog_urls")),
     path("survey/", include("survey.urls")),
+    path("nn-board/", include("nn_board.urls")),
 ]
