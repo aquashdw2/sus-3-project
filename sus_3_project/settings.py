@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "blog",
     "survey",
     "nn_board",
+    "landing",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'sus_3_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

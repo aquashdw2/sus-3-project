@@ -22,4 +22,5 @@ urlpatterns = [
     path("blog-url/", include("blog.blog_urls")),
     path("survey/", include("survey.urls")),
     path("nn-board/", include("nn_board.urls")),
+    path("", include("landing.landing_urls")),
 ]
