@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Create</h1>
-    <form action="/blog-url/create/" method="post">
+    <form action="{% url 'blog:create' %}" method="post">
         {% csrf_token %}
         Title: <input type="text" name="title" value="Title" />
         <div>
@@ -16,6 +16,6 @@
         </div>
         <input type="submit" value="작성" />
     </form><br>
-    <a href="/blog-url/home/">Go Back</a>
+    <a href="{% url 'blog:home' %}">Go Back</a>
 </body>
 </html>

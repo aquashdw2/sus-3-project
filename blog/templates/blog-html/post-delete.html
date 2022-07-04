@@ -9,10 +9,10 @@
 <body>
     <h1>Delete</h1>
     <h2>정말 삭제하시겠습니까?</h2>
-    <form action="/blog-url/{{ post.id }}/delete/" method="post">
+    <form action="{% url 'blog:delete' post.id %}" method="post">
         {% csrf_token %}
         <input type="submit" value="예" />
     </form>
-    <a href="/blog-url/{{ post.id }}/read/">돌아가기</a>
+    <a href="{% url 'blog:read' post.id %}">돌아가기</a>
 </body>
 </html>

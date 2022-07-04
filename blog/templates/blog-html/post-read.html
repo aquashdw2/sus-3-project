@@ -11,8 +11,10 @@
     <h2>{{ post.title }}</h2>
     <p>{{ post.content }}</p>
     <p>Created: {{ post.created_at }}</p>
-    <a href="/blog-url/home/">뒤로가기</a>
-    <a href="/blog-url/{{ post.id }}/update/">수정하기</a>
-    <a href="/blog-url/{{ post.id }}/delete/">삭제하기</a>
+    <a href="{% url 'blog:home' %}">뒤로가기</a>
+    <a href="{% url 'blog:update' post.id %}">수정하기</a>
+    <a href="{% url 'blog:delete' post.id %}">삭제하기</a>
+    <div>
+    </div>
 </body>
 </html>
