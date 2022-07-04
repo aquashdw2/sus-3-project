@@ -21,6 +21,7 @@ def read_all_survey_simple(request):
     survey_list = SurveySimple.objects.all()
     context = {
         "survey_list": survey_list,
+        "survey_count": len(survey_list),
     }
     return render(request, "survey/results-simple.html", context)
 
@@ -51,6 +52,7 @@ def read_all_survey_choice(request):
     survey_list = SurveyChoices.objects.all()
     context = {
         "survey_list": survey_list,
+        "survey_count": len(survey_list),
     }
     return render(request, "survey/results-choice.html", context)
 
