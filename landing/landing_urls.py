@@ -5,7 +5,8 @@ from landing import views
 
 
 urlpatterns = [
-    path("", views.landing),
+    path("", views.homepage),
+    path("templates/", views.landing),
     path("base/", views.base),
     path("extends/", views.extends),
 ]

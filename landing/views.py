@@ -2,6 +2,10 @@ from django.shortcuts import render
 from datetime import datetime
 
 
+def homepage(request):
+    return render(request, "index.html")
+
+
 def landing(request):
     current_datetime = datetime.now()
     current_datetime_str = f"{current_datetime.year}-{current_datetime.month}-{current_datetime.day}"
