@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign-Up Page</h1>
+    <form action="{% url 'accounts:sign-up' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label><input type="text" name="username" placeholder="아이디"/></label>
+        </div>
+        <div>
+            <label><input type="password" name="password" placeholder="비밀번호"/></label>
+        </div>
+        <div>
+            <label><input type="password" name="password_check" placeholder="비밀번호 확인"/></label>
+        </div>
+        <input type="submit" value="제출"/>
+    </form>
+    {% if error %}
+    <div>{{ error }}</div>
+    {% endif %}
+</body>
+</html>

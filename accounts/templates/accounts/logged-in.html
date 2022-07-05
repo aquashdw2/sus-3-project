@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged In?</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <form action="{% url 'accounts:sign-out' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="로그아웃" />
+    </form>
+    {% else %}
+    <a href="{% url 'accounts:sign-in' %}">로그인</a>
+    <a href="{% url 'accounts:sign-up' %}">회원가입</a>
+    {% endif %}
+</body>
+</html>

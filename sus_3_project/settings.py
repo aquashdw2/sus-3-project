@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "survey",
     "nn_board",
     "landing",
+    "accounts",
 ]
 
 MIDDLEWARE = [
