@@ -5,7 +5,7 @@ from django.contrib import auth
 
 def sign_up(request):
     if request.user.is_authenticated:
-        return redirect("accounts:logged-in")
+        return redirect("accounts-url-name:logged-in")
     context = {}
     if request.method == "POST":
         username_input = request.POST.get("username")
@@ -26,11 +26,11 @@ def sign_up(request):
 
                 auth.login(request, new_user)
 
-                return redirect("accounts:logged-in")
+                return redirect("accounts-url-name:logged-in")
         else:
             context["error"] = "올바르지 않은 정보입니다."
             
-    return render(request, "accounts/sign-up.html", context)
+    return render(request, "accounts-html/sign-up.html", context)
 
 
 def sign_in(request):
@@ -47,23 +47,23 @@ def sign_in(request):
 
             if sign_in_user is not None:
                 auth.login(request, sign_in_user)
-                return redirect("accounts:logged-in")
+                return redirect("accounts-url-name:logged-in")
             else:
                 context["error"] = "해당하는 사용자가 없습니다."
         else:
             context["error"] = "아이디와 비밀번호를 입력해주세요."
 
-    return render(request, "accounts/sign-in.html", context)
+    return render(request, "accounts-html/sign-in.html", context)
 
 
 def sign_out(request):
     if request.method == "POST":
         auth.logout(request)
-    return redirect("accounts:logged-in")
+    return redirect("accounts-url-name:logged-in")
 
 
 def logged_in(request):
     context = {
         "logged_in": request.user.is_authenticated,
     }
-    return render(request, "accounts/logged-in.html", context)
+    return render(request, "accounts-html/logged-in.html", context)

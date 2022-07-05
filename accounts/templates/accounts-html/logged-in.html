@@ -8,13 +8,13 @@
 </head>
 <body>
     {% if user.is_authenticated %}
-    <form action="{% url 'accounts:sign-out' %}" method="post">
+    <form action="{% url 'accounts-url-name:sign-out' %}" method="post">
         {% csrf_token %}
         <input type="submit" value="로그아웃" />
     </form>
     {% else %}
-    <a href="{% url 'accounts:sign-in' %}">로그인</a>
-    <a href="{% url 'accounts:sign-up' %}">회원가입</a>
+    <a href="{% url 'accounts-url-name:sign-in' %}">로그인</a>
+    <a href="{% url 'accounts-url-name:sign-up' %}">회원가입</a>
     {% endif %}
 </body>
 </html>
