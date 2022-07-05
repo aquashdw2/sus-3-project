@@ -9,7 +9,7 @@
 <body>
     <h1>Blog Home</h1>
     {% for post in post_list %}
-    <div>{{ post.id }}. {{ post.title }} <a href="/blog-url/{{ post.id }}/read/">보러가기</a></div>
+    <div>{{ post.id }}. {{ post.title }} <a href="{% url 'blog:read' post.id %}">보러가기</a></div>
     {% endfor %}
     <a href="{% url 'blog:create' %}">Write Post</a>
 </body>
