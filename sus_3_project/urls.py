@@ -24,4 +24,5 @@ urlpatterns = [
     path("nn-board/", include("nn_board.urls")),
     path("", include("landing.landing_urls")),
     path("accounts-url/", include("accounts.accounts_urls")),
+    path("boot/", include("boot.boot_urls")),
 ]
